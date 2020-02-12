@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Siparis Al</title>
+</head>
+<body>
+<script>
+    
+    
+    function sec (masaNo , ürünName) {
+
+            $.post("/siparisAl?masaNo="+masaNo+"&name="+ürünName, function(result){
+                alert(result);
+        });
+        
+    }
+    
+    
+    
+
+    $(document).ready(function(){
+        $.post("/getUrunler", function(result){
+            //alert(JSON.stringify(result));
+            var url_string = window.location.href; // www.test.com?filename=test
+            var url = new URL(url_string);
+            var paramValue = url.searchParams.get("masaNo");
+            document.getElementById("headerMasa ").innerHTML= "Masa no "+paramValue;
+            var html="";
+            for(var i = 0; i < result.length; i++) {
+                var obj=(result[i]);
+                console.log(obj);
+                var name = result[i].name ;
+                var fiyat= result[i].fiyat;
+                var onclic1 = 'sec('+paramValue+',"'+name.toString()+'")'
+               /* html += "<div onclick="+onclic1+" class='card'>" +
+                        obj.name +
+                        "</div>";*/
+
+               html+='<div class="card bg-light mb-3" style="max-width: 18rem;">' +
+                       '<div class="card-header bg-transparent border-success">' +
+                        fiyat +" TL"+
+                       '</div>' +
+                       '<div class="card-body text-success">' +
+                       '<h5 class="card-title">' + name+
+                       '</h5>' +
+                       '<p class="card-text" ></p>' +
+                       '</div>' +
+                       '<a href="" class="card-footer bg-transparent border-success' +
+                       '"  onclick=' +
+                       onclic1+
+                       '>MASAYA EKLE</a href>' +
+                       '</div>'
+            }
+            $("#kk").html(html);
+
+        });
+    });
+</script>
+
+
+
+
+
+<h1 id="headerMasa "></h1>
+
+<h6>Eklemek istediğiniz ürüne tıklayanız</h6>
+<div class="row" id="kk"></div>
+<button type="button" class="btn btn-danger" onclick="goBack()">Geri</button>
+
+
+</body>
+</html>

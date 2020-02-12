@@ -1,0 +1,8 @@
+1 masa1
+2 masa2
+3 masa3
+4 masa4
+5 masa5
+6 masa6
+7 masa7
+8 masa8

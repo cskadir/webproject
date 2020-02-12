@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Yeni Urun Ekle</title>
+</head>
+<body onload="yeniUrunDivYarat()">
+
+
+<div class = "col md-6">
+                    <select class="custom-select" id="inputGroupSelect" onchange="divGosterKapat()">
+                <option selected>Eklemek İstediğiniz Urunu Seçiniz</option>
+                <option value="1">Yemek</option>
+                <option value="2">Tatli</option>
+                <option value="3">Icecek</option>
+            </select>     </div>
+
+<div id="kk"></div>
+
+<button type="button" class="btn btn-success btn-lg" onclick="urunEkle()">EKLE</button>
+
+
+</body>
+</html>
